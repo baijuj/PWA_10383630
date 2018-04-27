@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Movies</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="canonical" href="https://weather-pwa-sample.firebaseapp.com/final/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="shortcut icon" href="\images\icons\icon-72x72.png" />
+  <script src="scripts/app.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    .show {
+      background-color: #E06E86;
+
+    }
+
+    .movie {
+      background-color: #DFCDD6;
+
+    }
+
+    .time {
+      background-color: #EDD9DE;
+
+    }
+
+    .template {
+      display: none !important;
+    }
+
+
+
+    .seat { border: solid 1px red; width: 30px; height: 30px ; margin: 5px;}
+
+.reserved { background-color: red }
+.available {background-color: yellow }
+.selected { background-color: green }
+
+
+
+
+
+.items {
+	overflow: hidden; /* simple clearfix */
+}
+.items .item {
+	float: left;
+	width: 40px;
+  height: 40px;
+  margin:5px;
+  box-sizing: border-box;
+  background: #53c653;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;
+  color: #171e42;
+  border-radius: 5px;
+ 
+}
+.items .selected{
+  background:orange;
+}
+
+.items .reserved{
+  background:#ff1a1a;
+}
+.items .way{
+  margin-right: 50px;
+}
+
+  </style>
+</head>
+
+<body style="background: #9E0A29;">
+  <div id="header" style="height:80px"></div>
+  <div class="container"  style="background:white; border-radius: 10px; ">
+    <div id="id1" style="height:10px"></div>
+    <div class="row">
+      <div class="col-sm-12">
+        <img class="img-responsive" src="images/logo.jpg" style="width:100%">
+      </div>
+    </div>
+
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="#">Kids Club</a>
+            </li>
+            <li>
+              <a href="#">Event Cinema</a>
+            </li>
+            <li>
+              <a href="#">Coming Soon</a>
+            </li>
+            <li>
+              <a href="#">Competitions</a>
+            </li>
+            <li>
+              <a href="#">Cinema Info</a>
+            </li>
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-user"></span> Sign Up</a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-log-in"></span> Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <img class="img-responsive" src="images/movies.png" style="width:100%">
+      </div>
+    </div>
+
+
+
+    <div class="row" id="parent" >
+
+        
+    </div> 
+
+    <div class="row">
+
+      <div class="col-md-3">
+
+      </div> 
+
+      <!-- seat boxes-->
+      <div class="col-md-6">
+          <div class="row">
+
+              <div class="col-md-12">
+
+                  <div class="items">
+                      <div class="item">1</div>
+                      <div class="item">2</div>
+                      <div class="item way">3</div>
+                      <div class="item">4</div>
+                      <div class="item">5</div>
+                      <div class="item">6</div>
+                      <div class="item">7</div>
+                      <div class="item">8</div>
+                      <div class="item reserved">9</div>
+                    </div>
+                    <div class="items">
+                     
+                      <div class="item">10</div>
+                      <div class="item">11</div>
+                      <div class="item way">12</div>
+                      <div class="item">13</div>
+                      <div class="item">14</div>
+                      <div class="item">15</div>
+                      <div class="item">16</div>
+                      <div class="item">17</div>
+                        <div class="item">18</div>
+                    </div>
+                    <div class="items">
+                        
+                        <div class="item">19</div>
+                        <div class=" item reserved">20</div>
+                        <div class="item reserved way">21</div>
+                        <div class="item">22</div>
+                        <div class="item">23</div>
+                        <div class="item">24</div>
+                        <div class="item">25</div>
+                        <div class="item">26</div>
+                          <div class="item">27</div>
+                      </div>
+                      <div class="items">
+                          
+                          <div class="item">28</div>
+                          <div class=" item">29</div>
+                          <div class="item way">30</div>
+                          <div class="item">31</div>
+                          <div class="item">32</div>
+                          <div class="item">33</div>
+                          <div class="item reserved">34</div>
+                          <div class="item reserved">35</div>
+                            <div class="item">36</div>
+                        </div>
+                        <div class="items">
+                            
+                            <div class="item">37</div>
+                            <div class=" item">38</div>
+                            <div class="item way reserved">39</div>
+                            <div class="item">40</div>
+                            <div class="item">41</div>
+                            <div class="item">42</div>
+                            <div class="item">43</div>
+                            <div class="item">44</div>
+                            <div class="item">45</div>
+                          </div>
+
+                          <div class="items">
+                            
+                            <div class="item">46</div>
+                            <div class=" item">47</div>
+                            <div class="item way">48</div>
+                            <div class="item">49</div>
+                            <div class="item">50</div>
+                            <div class="item">51</div>
+                            <div class="item">52</div>
+                            <div class="item">53</div>
+                            <div class="item">54</div>
+                          </div>
+
+                          <div class="items">
+                            
+                            <div class="item">55</div>
+                            <div class=" item">56</div>
+                            <div class="item way">57</div>
+                            <div class="item reserved">58</div>
+                            <div class="item">59</div>
+                            <div class="item">60</div>
+                            <div class="item">61</div>
+                            <div class="item">62</div>
+                            <div class="item">63</div>
+                          </div>
+
+                         
+
+
+                          <div style="text-align: center;margin:20px;">
+                            
+                            
+                          <!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-primary btn-md" id="btnModal" data-toggle="modal" data-target="#myModal">Proceed</button>
+                          </div>
+
+                </div> 
+
+          </div>
+      </div> 
+
+
+
+      <div class="col-md-3">
+
+      </div> 
+  
+
+    </div>
+
+
+
+    <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Movie Details</h4>
+        </div>
+        <div class="modal-body" id="modalContent">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button"  class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+    
+</div>
+
+<script>
+  var totalSeats=0;
+  var countSelected=0;
+  var m,d,t;
+
+  function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+
+
+  $(document).ready(function(){
+
+
+
+$('#btnModal').on('click', function(evt) {
+  $("#modalContent").children("#moviedetails").remove();
+  $('#modalContent').append(`<div id="moviedetails">
+                    
+Movie: `+m+`<br>Time: `+d+` `+t+`<br>Tickets: `+countSelected+`</div>
+         `);
+});
+
+    $(".item").on("click", function() {
+  if (! $(this).hasClass("reserved") ) {
+	
+    if(countSelected< totalSeats || $(this).hasClass("selected") ){
+      $(this).toggleClass("selected");
+    }
+
+  //$(this).addClass("selected");
+ 
+
+  }
+
+   countSelected = $(".selected").length;
+   //
+  
+});
+
+      m = getParameterByName('hdnm');
+       d = getParameterByName('hdnd');
+       t = getParameterByName('hdnt');
+
+      var optA = parseInt(getParameterByName('optA'));
+      var optB = parseInt(getParameterByName('optB'));
+      var optC = parseInt(getParameterByName('optC'));
+      var optD = parseInt(getParameterByName('optD'));
+      var optE = parseInt(getParameterByName('optE'));
+      var optF = parseInt(getParameterByName('optF'));
+      var optG = parseInt(getParameterByName('optG'));
+      var optH = parseInt(getParameterByName('optH'));
+
+
+      totalSeats=optA+optB+optC+optD+optE+optF+optG+optH;
+      
+
+m=decodeURIComponent(m) ;
+      var imgName = m.replace(/\s/g, '');
+  imgName = imgName.toLowerCase();
+
+         $('#parent').append(`
+                      <div class="col-md-8">
+                          <h4>`+ m + `, Time: `+ d + ` `+ t + `</h4><br>
+                          
+                          </div>
+
+         `);
+
+  });
+
+
+</script>
+</body>
+</html>

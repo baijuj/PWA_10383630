@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Movies</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="canonical" href="https://weather-pwa-sample.firebaseapp.com/final/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="shortcut icon" href="\images\icons\icon-72x72.png" />
+  <script src="scripts/app.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    .show {
+      background-color: #E06E86;
+
+    }
+
+    .movie {
+      background-color: #DFCDD6;
+
+    }
+
+    .time {
+      background-color: #EDD9DE;
+
+    }
+
+    .template {
+      display: none !important;
+    }
+
+    img {
+
+      background: "images/placeholder.png" no-repeat scroll 0 0;
+    }
+  </style>
+</head>
+
+<body style="background: #9E0A29;">
+  <div id="header" style="height:80px"></div>
+  <div class="container" id="parent" style="background:white; border-radius: 10px; ">
+    <div id="id1" style="height:10px"></div>
+    <div class="row">
+      <div class="col-sm-12">
+        <img class="img-responsive" src="images/logo.jpg" style="width:100%">
+      </div>
+    </div>
+
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">Kids Club</a>
+            </li>
+            <li>
+              <a href="#">Event Cinema</a>
+            </li>
+            <li>
+              <a href="#">Coming Soon</a>
+            </li>
+            <li>
+              <a href="#">Competitions</a>
+            </li>
+            <li>
+              <a href="#">Cinema Info</a>
+            </li>
+            <li>
+              <a href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-user"></span> Sign Up</a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-log-in"></span> Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <img class="img-responsive" src="images/movies.png" style="width:100%">
+      </div>
+    </div>
+
+
+    <div class="row show">
+     
+
+      <div class="col-md-3">
+
+        <div class="dropdown">
+          <button class="btn-danger dropdown-toggle" type="button" data-toggle="dropdown">Select Day:
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#">Sunday</a>
+            </li>
+            <li>
+              <a href="#">Monday</a>
+            </li>
+            <li>
+              <a href="#">Tuesday</a>
+            </li>
+            <li>
+              <a href="#">Wednesday</a>
+            </li>
+            <li>
+              <a href="#">Thursday</a>
+            </li>
+            <li>
+              <a href="#">Friday</a>
+            </li>
+            <li>
+              <a href="#">Saturday</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-9"></div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+
+function CallMovieAPI(day) {
+ 
+  
+      var movieDay=day;
+
+      jQuery.ajax({
+        url: "https://college-movies.herokuapp.com/",
+        type: "GET",
+
+        contentType: 'application/json; charset=utf-8',
+        success: function (resultData) {
+          var tmpResult = resultData.slice(0, 9);
+          //console.log(tmpResult)
+
+          for (var i = 0; i < tmpResult.length; i++) {
+
+
+            var title = tmpResult[i]['title'],
+              director = tmpResult[i]['director'],
+              note = tmpResult[i]['notes'],
+              genre = tmpResult[i]['genre'];
+
+              var t1="",t2="",t3="",t4="",t5="",t6="";  
+
+              //only taking first 6 items...API providing max 6 values
+              if ( tmpResult[i]['runningTimes'][movieDay][0] != null ) {t1= tmpResult[i]['runningTimes'][movieDay][0]; }
+              if ( tmpResult[i]['runningTimes'][movieDay][1] != null ) {t2= tmpResult[i]['runningTimes'][movieDay][1]; }
+              if ( tmpResult[i]['runningTimes'][movieDay][2] != null ) {t3= tmpResult[i]['runningTimes'][movieDay][2]; }
+              if ( tmpResult[i]['runningTimes'][movieDay][3] != null ) {t4= tmpResult[i]['runningTimes'][movieDay][3]; }
+              if ( tmpResult[i]['runningTimes'][movieDay][4] != null ) {t5= tmpResult[i]['runningTimes'][movieDay][4]; }
+              if ( tmpResult[i]['runningTimes'][movieDay][5] != null ) {t6= tmpResult[i]['runningTimes'][movieDay][5]; }
+
+//t5=(tmpResult[i]['runningTimes']['sun'][5] === undefined) ? "" : val;
+	//            t6=(tmpResult[i]['runningTimes']['sun'][6] === undefined) ? "" : val;
+
+            var imgName = tmpResult[i]['title'];
+            imgName = imgName.replace(/\s/g, '');
+            imgName = imgName.toLowerCase();
+
+            $('#parent').append(`
+   
+                <div class="row" id="movieList" style="padding:10px">
+              
+              <div class="col-md-8" >
+                  
+                  <div class="row movie">
+                      <div class="col-md-2">
+                          <img class="img-responsive" src="images/`+ imgName + `.jpg" onerror="this.src='images/placeholder.png'" alt="Chania">
+                      </div>
+                      <div class="col-md-10">
+                          <h4>`+ title + `</h4><br>
+                          Director: `+ director + `<br>
+                          Notes: `+ note + `<br>
+                          Genre: `+ genre + `<br><br>
+                          <div class="row">
+                            <div class="col-md-2">
+                              <a href=ticketType.html?m=`+ encodeURIComponent(title) +`&d=`+ day +`&t=`+ t1 +`> `+ t1 + `</a>
+                            </div>
+                         <div class="col-md-2">
+                              <a href=ticketType.html?m=`+ encodeURIComponent(title) +`&d=`+ day +`&t=`+ t2 +`> `+ t2 + `</a>
+                              </div>
+
+                              <div class="col-md-2">
+                                <a href=ticketType.html?m=`+ encodeURIComponent(title) +`&d=`+ day +`&t=`+ t3 +`> `+ t3 + `</a>
+                              </div>
+                              <div class="col-md-2">
+                                <a href=ticketType.html?m=`+ encodeURIComponent(title) +`&d=`+ day +`&t=`+ t4 +`> `+ t4 + `</a>
+                              </div>
+                              <div class="col-md-2">
+                                <a href=ticketType.html?m=`+ encodeURIComponent(title) +`&d=`+ day +`&t=`+ t5 +`> `+ t5 + `</a>
+                              </div>
+                              <div class="col-md-2">
+                                <a href=ticketType.html?m=`+ encodeURIComponent(title) +`&d=`+ day +`&t=`+ t6 +`> `+ t6 + `</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+              </div>
+              
+              </div>
+                `);
+          }
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+          console.log("err");
+        },
+
+        timeout: 120000,
+      });
+
+}
+
+
+    $(document).ready(function () {
+
+         //initial api call with current day
+         var d = new Date();
+    var weekday = new Array(7);
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+
+    var currentDay = weekday[d.getDay()];
+    currentDay=currentDay.substring(0,3).toLowerCase();
+    
+         CallMovieAPI(currentDay);
+
+          $('.dropdown-menu a').click(function(e){  //drop down click event
+            var day = $(e.target).text(); // Get the text of the element
+            //alert(day);
+            var shortDay=day.substring(0,3).toLowerCase();
+            $("#parent").children("#movieList").remove();
+            CallMovieAPI(shortDay);
+           });
+    
+    });
+
+
+  </script>
+</body>
+
+</html>

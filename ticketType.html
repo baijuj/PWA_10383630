@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Movies</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="canonical" href="https://weather-pwa-sample.firebaseapp.com/final/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="shortcut icon" href="\images\icons\icon-72x72.png" />
+  <script src="scripts/app.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    .show {
+      background-color: #E06E86;
+
+    }
+
+    .movie {
+      background-color: #DFCDD6;
+
+    }
+
+    .time {
+      background-color: #EDD9DE;
+
+    }
+
+    .buttonrow {
+      margin-bottom: 20px;
+      margin-top: 20px;
+
+    }
+
+    .template {
+      display: none !important;
+    }
+
+    img {
+
+      background: "images/placeholder.png" no-repeat scroll 0 0;
+    }
+  </style>
+</head>
+
+<body style="background: #9E0A29;">
+  <div id="header" style="height:80px"></div>
+  <div class="container"  style="background:white; border-radius: 10px; ">
+    <div id="id1" style="height:10px"></div>
+    <div class="row">
+      <div class="col-sm-12">
+        <img class="img-responsive" src="images/logo.jpg" style="width:100%">
+      </div>
+    </div>
+
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="#">Kids Club</a>
+            </li>
+            <li>
+              <a href="#">Event Cinema</a>
+            </li>
+            <li>
+              <a href="#">Coming Soon</a>
+            </li>
+            <li>
+              <a href="#">Competitions</a>
+            </li>
+            <li>
+              <a href="#">Cinema Info</a>
+            </li>
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-user"></span> Sign Up</a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-log-in"></span> Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <img class="img-responsive" src="images/movies.png" style="width:100%">
+      </div>
+    </div>
+  
+
+
+  <div>
+      <div id="id1" style="height:30px"></div>
+      <div class="row movie" >
+          <div class="col-md-12">
+            <h4>Select ticket type:</h4>
+            <br>
+            <div class="row movie" id="parent">
+               
+
+                </div>
+                   
+              A 50c booking fee is applied for a single ticket order. A €1 booking fee is applied to orders of more than one ticket.
+Booking fees cannot be refunded under any circumstance. Tickets will only be refunded if presented upto 2 hours before the performance starts.
+The Student Tuesday meal offer is only available on tickets purchased in store
+A family ticket is for 2 adults and 2 children, or 1 adult and 3 children
+Monday Meal Deal tickets entitle the customer to a large combo and ticket for only €9.95 every Monday evening. See terms and conditions HERE.
+            </div>
+
+      </div>
+
+      
+            <div id="id1" style="height:30px"></div>
+    <form method="get" action="seat.html"  name="frm" id="frm" >
+      <div class="row ">
+        <div class="col-md-2">
+        <select name="optA">
+        <option value="0">None</option>
+        <option  value="1">1</option>
+        <option  value="2">2</option>
+        <option  value="3">3</option>
+        <option  value="4">4</option>
+        <option  value="5">5</option>
+        </select>
+          </div>
+          <div class="col-md-4">
+            
+            Large Sweet Combo Deal + Tickets @ €21.45
+          </div>
+          <div class="col-md-6">
+            </div>
+         </div>
+         <br>
+         
+         <div class="row ">
+            <div class="col-md-2">
+            <select name="optB">
+            <option value="0">None</option>
+            <option  value="1">1</option>
+            <option  value="2">2</option>
+            <option  value="3">3</option>
+            <option  value="4">4</option>
+            <option  value="5">5</option>
+            </select>
+              </div>
+              <div class="col-md-4">
+                
+                
+Medium Sweet Combo Deal + Tickets @ €20.45
+              </div>
+              <div class="col-md-6">
+                </div>
+             </div>
+          
+             <br>
+
+          <div class="row ">
+              <div class="col-md-2">
+              <select name="optC">
+              <option value="0">None</option>
+              <option  value="1">1</option>
+              <option  value="2">2</option>
+              <option  value="3">3</option>
+              <option  value="4">4</option>
+              <option  value="5">5</option>
+              </select>
+                </div>
+                <div class="col-md-4">
+                  
+                    Medium Combo Deal + Tickets @ €18.45
+                </div>
+                <div class="col-md-6">
+                  </div>
+               </div>
+
+               <br>
+         
+               <div class="row ">
+                  <div class="col-md-2">
+                  <select name="optD">
+                  <option value="0">None</option>
+                  <option  value="1">1</option>
+                  <option  value="2">2</option>
+                  <option  value="3">3</option>
+                  <option  value="4">4</option>
+                  <option  value="5">5</option>
+                  </select>
+                    </div>
+                    <div class="col-md-4">
+                      
+                        Duo Combo Deal + 2 Tickets @ €33.00
+                    </div>
+                    <div class="col-md-6">
+                      </div>
+                   </div>
+
+                   <br>
+         
+                   <div class="row ">
+                      <div class="col-md-2">
+                      <select name="optE">
+                      <option value="0">None</option>
+                      <option  value="1">1</option>
+                      <option  value="2">2</option>
+                      <option  value="3">3</option>
+                      <option  value="4">4</option>
+                      <option  value="5">5</option>
+                      </select>
+                        </div>
+                        <div class="col-md-4">
+                          
+                            Kids Combo Deal + Tickets @ €12.45
+                        </div>
+                        <div class="col-md-6">
+                          </div>
+                       </div>
+                       <br>
+
+                       <div class="row ">
+                          <div class="col-md-2">
+                          <select name="optF">
+                          <option value="0">None</option>
+                          <option  value="1">1</option>
+                          <option  value="2">2</option>
+                          <option  value="3">3</option>
+                          <option  value="4">4</option>
+                          <option  value="5">5</option>
+                          </select>
+                            </div>
+                            <div class="col-md-4">
+                              
+                                Monday Meal Deal - Large Combo + Tickets @ €9.95
+                            </div>
+                            <div class="col-md-6">
+                              </div>
+                           </div>
+                           <br>
+                           <div class="row ">
+                              <div class="col-md-2">
+                              <select name="optG">
+                              <option value="0">None</option>
+                              <option  value="1">1</option>
+                              <option  value="2">2</option>
+                              <option  value="3">3</option>
+                              <option  value="4">4</option>
+                              <option  value="5">5</option>
+                              </select>
+                                </div>
+                                <div class="col-md-4">
+                                  
+                                  Large Sweet Combo Deal + Tickets @ €21.45
+                                </div>
+                                <div class="col-md-6">
+                                  </div>
+                               </div>
+                               <br>
+                               <div class="row ">
+                                  <div class="col-md-2">
+                                  <select name="optH">
+                                  <option value="0">None</option>
+                                  <option  value="1">1</option>
+                                  <option  value="2">2</option>
+                                  <option  value="3">3</option>
+                                  <option  value="4">4</option>
+                                  <option  value="5">5</option>
+                                  </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                      
+                                        Adult Tickets @ €11.20
+                                    </div>
+                                    <div class="col-md-6">
+                                      </div>
+                                   </div>
+
+        
+                       <div class="row buttonrow">
+                         
+                         <input type="hidden" name="hdnm" id="hdnm" value="">
+                         <input type="hidden" name="hdnd" id="hdnd" value="">
+                         <input type="hidden" name="hdnt" id="hdnt" value="">
+                          <div class="col-md-2">
+                              <button type="button" class="btn btn-danger btn-sm">Cancel</button>
+                            </div>
+
+                            <div class="col-md-2">
+                            <button type="submit" class="btn btn-primary btn-sm">Proceed</button>
+                              
+                            
+                            </div>
+                            <div class="col-md-8">
+                              </div>
+                           </div>
+      </form>
+      <script>
+
+
+        function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+
+
+
+
+
+      $(document).ready(function(){
+
+var m = getParameterByName('m');
+var d = getParameterByName('d');
+var t = getParameterByName('t');
+
+if(d=='mon'){d="Monday";}
+if(d=='tue'){d="Tuesday";}
+if(d=='wed'){d="Wednesday";}
+if(d=='thu'){d="Thursday";}
+if(d=='fri'){d="Friday";}
+if(d=='sat'){d="Saturday";}
+if(d=='sun'){d="Sunday";}
+
+document.getElementById("hdnm").value = encodeURIComponent(m) ;
+document.getElementById("hdnd").value =d;
+document.getElementById("hdnt").value =t;
+
+
+
+ var imgName = m.replace(/\s/g, '');
+  imgName = imgName.toLowerCase();
+
+         $('#parent').append(`
+         <div class="col-md-2">
+                          <img class="img-responsive" src="images/`+ imgName + `.jpg" onerror="this.src='images/placeholder.png'" alt="Chania">
+                      </div>
+
+                      <div class="col-md-10">
+                          <h4>`+ m + `</h4><br>
+                          Time: `+ d + ` `+ t + `<br>
+                          </div>
+
+         `);
+
+
+
+           function optTotal() {
+        var Sum = 0;
+        for (var i = 0; i < formSelects.length; i++) {
+            if (formSelects[i].value != '') Sum += parseFloat(formSelects[i].value);
+        }
+       
+    }
+
+    var formSelects = document.querySelectorAll('#frm select');
+    for (var i = 0; i < formSelects.length; i++) {
+        formSelects[i].onchange = optTotal;
+    }
+
+      });
+
+      </script>
+  </div>
+  </div>
+  </body>
+  </html>
+
+    

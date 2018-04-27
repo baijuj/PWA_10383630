@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Movies</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="canonical" href="https://weather-pwa-sample.firebaseapp.com/final/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="shortcut icon" href="\images\icons\icon-72x72.png" />
+  <script src="scripts/app.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+      #map {
+        height: 400px;
+        
+       }
+    .show {
+      background-color: #E06E86;
+     
+
+    }
+
+    .movie {
+      background-color: #DFCDD6;
+
+    }
+
+    .time {
+      background-color: #EDD9DE;
+
+    }
+
+    .buttonrow {
+      margin-bottom: 20px;
+      margin-top: 20px;
+
+    }
+
+    .template {
+      display: none !important;
+    }
+
+    img {
+
+      background: "images/placeholder.png" no-repeat scroll 0 0;
+    }
+  </style>
+</head>
+
+<body style="background: #9E0A29;">
+  <div id="header" style="height:80px"></div>
+  <div class="container"  style="background:white; border-radius: 10px; ">
+    <div id="id1" style="height:10px"></div>
+    <div class="row">
+      <div class="col-sm-12">
+        <img class="img-responsive" src="images/logo.jpg" style="width:100%">
+      </div>
+    </div>
+
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="#">Kids Club</a>
+            </li>
+            <li>
+              <a href="#">Event Cinema</a>
+            </li>
+            <li>
+              <a href="#">Coming Soon</a>
+            </li>
+            <li>
+              <a href="#">Competitions</a>
+            </li>
+            <li>
+              <a href="#">Cinema Info</a>
+            </li>
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-user"></span> Sign Up</a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-log-in"></span> Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="row">
+            <div class="col-sm-12">
+              <img class="img-responsive" src="images/movies.png" style="width:100%">
+            </div>
+          </div>
+
+
+  
+    <div class="row" style="margin:10px">
+     
+        <div class="col-md-8" id="map">
+
+        </div>
+
+
+        <div class="col-md-4" >
+                <b>CONTACT :
+                Movies@Dundrum</b>
+                
+                Dundrum Town Centre
+                
+                Dundrum, Dublin 14, Ireland
+                
+                Film Information and Bookings: 1520 880 333
+        </div>
+
+    </div>
+
+
+
+    
+           
+      
+  </div>
+  </div>
+  <script>
+
+        $(document).ready(function () {
+
+          
+
+        });
+
+        function initMap() {
+           
+          var uluru = {lat: 53.2875418, lng: -6.2444365};
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 18,
+            center: uluru
+          });
+          var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+          });
+        }
+      </script>
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcWPqpER4CMTh5cJ_EgezI6CQoL1yA0MI&callback=initMap">
+      </script>
+  </body>
+  </html>
+
+    
